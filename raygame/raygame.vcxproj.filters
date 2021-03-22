@@ -15,6 +15,12 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Pac Header Files\Behaviours">
+      <UniqueIdentifier>{632812f0-3c1a-4794-b95a-519fafdaec03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pac Source Files\Behaviours">
+      <UniqueIdentifier>{0dc7dad3-da15-48ee-80fe-34b386a574f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -38,16 +44,10 @@
     <ClCompile Include="Ghost.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KeyboardBehavior.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Maze.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Pac.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SeekBehavior.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Wall.cpp">
@@ -59,14 +59,20 @@
     <ClCompile Include="NodeGraph.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PursuePathBehavior.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SeekPathBehavior.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PathfindBehavior.cpp">
       <Filter>Engine Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardBehavior.cpp">
+      <Filter>Pac Source Files\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="PursuePathBehavior.cpp">
+      <Filter>Pac Source Files\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekBehavior.cpp">
+      <Filter>Pac Source Files\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekPathBehavior.cpp">
+      <Filter>Pac Source Files\Behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -91,16 +97,10 @@
     <ClInclude Include="Wall.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SeekBehavior.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Pac.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Maze.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyboardBehavior.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Ghost.h">
@@ -109,14 +109,20 @@
     <ClInclude Include="NodeGraph.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PursuePathBehavior.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SeekPathBehavior.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PathfindBehavior.h">
       <Filter>Engine Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardBehavior.h">
+      <Filter>Pac Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="PursuePathBehavior.h">
+      <Filter>Pac Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekBehavior.h">
+      <Filter>Pac Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekPathBehavior.h">
+      <Filter>Pac Header Files\Behaviours</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

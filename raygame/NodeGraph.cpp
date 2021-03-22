@@ -4,11 +4,114 @@
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
 	// Find a path from start to end (The current implementation is obviously insufficient)
-	std::deque<Node*> path;
-	path.push_back(start);
-	path.push_back(start);
-	path.push_back(end);
-	return path;
+	Node* begin = start;
+	Node* goal = end;
+
+	begin->gScore = 1;
+	//Check if the start or the goal pointer is null
+	//if so return an empty list
+	if (!begin || !goal)
+		return std::deque<Node*>();
+
+	//Create a node pointer that will act as an iterator
+	Node* currentNode;
+
+	std::deque<Node*> openList;
+	std::deque<Node*> closedList;
+
+	openList.push_back(begin);
+
+	//Loop while the open list is not empty
+	while (!openList.empty())
+	{
+		//Sort the items in the open list by the g score
+		for (int i = 0; i < openList.size() - 1; i++)
+		{
+			bool swapped = false;
+
+			for (int j = 0; j < openList.size() - i - 1; j++)
+			{
+				if (openList[j]->gScore > openList[j + 1]->gScore)
+				{
+					Node* temp = openList[j];
+					openList[j] = openList[j + 1];
+					openList[j + 1] = temp;
+					swapped = true;
+				}
+
+				if (!swapped)
+					break;
+			}
+		}
+
+		currentNode = openList[0];
+
+		//If the current node is the goal
+		//return new path found
+		if (currentNode == goal)
+		{
+			Node* iter = nullptr;
+			std::deque<Node*> goalPath;
+			goalPath.push_front(currentNode->previous);
+
+			for (int i = 0; i < closedList.size(); i++)
+				if (goalPath[0]->previous)
+					goalPath.push_front(goalPath[0]->previous);
+
+			return goalPath;
+		}
+
+		//Pop the first item off the open list
+		openList.pop_front();
+		//Add the first item to the closed list
+		closedList.push_back(currentNode);
+
+		//Loop through all of the edges for the iterator
+		for (int i = 0; i < currentNode->connections.size(); i++)
+		{
+			Node* currentEdgeEnd = nullptr;
+
+			currentEdgeEnd = currentNode->connections[i].target;
+
+			bool inList = false;
+
+			//checks if currentEdge is in closedList
+			for (int j = 0; j < closedList.size(); j++)
+				if (currentEdgeEnd == closedList[j])
+					inList = true;
+
+			//Check if node at the end of the edge is in the closed list
+			if (!inList)
+			{
+				//Create a float and set it to be the g score of the iterator plus the cost of the edge
+				float gScoreTotal = currentNode->gScore + currentNode->connections[i].cost;
+
+				//checks if currentEdge is in openList
+				for (int j = 0; j < openList.size(); j++)
+					if (currentEdgeEnd == openList[j])
+						inList = true;
+
+				//Check if the node at the end of the edge is in the open list
+				if (!inList)
+				{
+					currentEdgeEnd->gScore = gScoreTotal;
+					currentEdgeEnd->previous = currentNode;
+					//Add the node to the open list
+					openList.push_front(currentEdgeEnd);
+				}
+
+				//Otherwise if the g score is less than the node at the end of the edge's g score...
+				else if (currentNode->gScore < currentEdgeEnd->gScore)
+				{
+					currentEdgeEnd->gScore = gScoreTotal;
+					currentEdgeEnd->previous = currentNode;
+				}
+			}
+			//end if statement
+		}
+		//end loop
+	}
+	//end loop
 }
 
 void NodeGraph::drawGraph(Node* start)
