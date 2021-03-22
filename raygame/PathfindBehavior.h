@@ -58,5 +58,6 @@ private:
 	Actor* m_target = nullptr;
 	bool m_needPath = true;
 	int m_color = 0xFFFFFFFF;
+	int m_coolDown = 0;
 };
 

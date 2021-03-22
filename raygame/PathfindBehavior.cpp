@@ -60,7 +60,14 @@ void PathfindBehavior::updatePath(Agent* owner, MathLibrary::Vector2 destination
 {
 	NodeGraph::Node* ownerNode = m_maze->getTile(owner->getWorldPosition()).node;
 	NodeGraph::Node* targetNode = m_maze->getTile(destination).node;
-	m_path = NodeGraph::findPath(ownerNode, targetNode);
+
+	if (m_coolDown <= 0)
+	{
+		m_path = NodeGraph::findPath(ownerNode, targetNode);
+		m_coolDown = 100;
+	}
+	m_coolDown--;
 	//if (!m_path.empty()) m_path.pop_front();
 	m_needPath = false;
+
 }
