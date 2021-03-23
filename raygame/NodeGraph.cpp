@@ -25,24 +25,7 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 	while (!openList.empty())
 	{
 		//Sort the items in the open list by the g score
-		for (int i = 0; i < openList.size() - 1; i++)
-		{
-			bool swapped = false;
-
-			for (int j = 0; j < openList.size() - i - 1; j++)
-			{
-				if (openList[j]->gScore > openList[j + 1]->gScore)
-				{
-					Node* temp = openList[j];
-					openList[j] = openList[j + 1];
-					openList[j + 1] = temp;
-					swapped = true;
-				}
-
-				if (!swapped)
-					break;
-			}
-		}
+		selectSort(openList);
 
 		currentNode = openList[0];
 
@@ -153,4 +136,34 @@ void NodeGraph::drawConnectedNodes(Node* node, std::deque<Node*>* drawnList)
 			drawConnectedNodes(e.target, drawnList);
 		}
 	}
+}
+
+std::deque<NodeGraph::Node*> NodeGraph::selectSort(std::deque<Node*> list)
+{
+	int pos = 0;
+	Node* temp = nullptr;
+
+	for (int i = 0; i < list.size(); i++)
+	{
+		pos = findSmallest(list, i);
+		temp = list[i];
+		list[i] = list[pos];
+		list[pos] = temp;
+	}
+
+	return list;
+}
+
+float NodeGraph::findSmallest(std::deque<Node*> list, int i)
+{
+	float smallI = list[i]->gScore;
+	int position = i;
+	for (int j = i + 1; j < list.size(); j++)
+		if (list[j]->gScore < smallI)
+		{
+			smallI = list[j]->gScore;
+			position = j;
+		}
+
+	return position;
 }

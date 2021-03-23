@@ -52,5 +52,10 @@ namespace NodeGraph
 	/// <param name="node">The node to start</param>
 	/// <param name="drawnList">Nodes that have already been drawn</param>
 	void drawConnectedNodes(Node* node, std::deque<Node*>* drawnList = nullptr);
+
+	std::deque<Node*> selectSort(std::deque<Node*> list);
+
+	float findSmallest(std::deque<Node*> list, int i);
+
 };
 
