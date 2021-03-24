@@ -2,5 +2,5 @@
 
 MathLibrary::Vector2 FleePathBehavior::findDestination(Agent* owner)
 {
-	return getTarget()->getWorldPosition();
+	return owner->getWorldPosition() - getTarget()->getWorldPosition();
 }

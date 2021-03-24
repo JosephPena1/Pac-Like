@@ -14,7 +14,7 @@ Actor::Actor()
 
     m_velocity = MathLibrary::Vector2();
     m_acceleration = MathLibrary::Vector2();
-    m_collisionRadius = 0;
+    m_collisionRadius = 2;
     m_maxSpeed = 1;
     setLocalPosition(MathLibrary::Vector2(0, 0));
 

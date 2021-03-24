@@ -21,6 +21,12 @@
     <Filter Include="Pac Source Files\Behaviours">
       <UniqueIdentifier>{0dc7dad3-da15-48ee-80fe-34b386a574f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pac Header Files\Decision">
+      <UniqueIdentifier>{b3210042-f93c-41fb-96db-4b45cac45090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pac Source Files\Decision">
+      <UniqueIdentifier>{ee3cc9d0-245e-4058-9ade-b5ff14ecda10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -68,17 +74,26 @@
     <ClCompile Include="PursuePathBehavior.cpp">
       <Filter>Pac Source Files\Behaviours</Filter>
     </ClCompile>
-    <ClCompile Include="SeekBehavior.cpp">
-      <Filter>Pac Source Files\Behaviours</Filter>
-    </ClCompile>
     <ClCompile Include="SeekPathBehavior.cpp">
-      <Filter>Pac Source Files\Behaviours</Filter>
-    </ClCompile>
-    <ClCompile Include="FleeBehavior.cpp">
       <Filter>Pac Source Files\Behaviours</Filter>
     </ClCompile>
     <ClCompile Include="FleePathBehavior.cpp">
       <Filter>Pac Source Files\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionBehavior.cpp">
+      <Filter>Pac Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="ABDecision.cpp">
+      <Filter>Pac Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekDecision.cpp">
+      <Filter>Pac Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeDecision.cpp">
+      <Filter>Pac Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="Tagged.cpp">
+      <Filter>Pac Source Files\Decision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,17 +139,29 @@
     <ClInclude Include="PursuePathBehavior.h">
       <Filter>Pac Header Files\Behaviours</Filter>
     </ClInclude>
-    <ClInclude Include="SeekBehavior.h">
-      <Filter>Pac Header Files\Behaviours</Filter>
-    </ClInclude>
     <ClInclude Include="SeekPathBehavior.h">
-      <Filter>Pac Header Files\Behaviours</Filter>
-    </ClInclude>
-    <ClInclude Include="FleeBehavior.h">
       <Filter>Pac Header Files\Behaviours</Filter>
     </ClInclude>
     <ClInclude Include="FleePathBehavior.h">
       <Filter>Pac Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Decision.h">
+      <Filter>Pac Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionBehavior.h">
+      <Filter>Pac Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="ABDecision.h">
+      <Filter>Pac Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekDecision.h">
+      <Filter>Pac Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeDecision.h">
+      <Filter>Pac Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="Tagged.h">
+      <Filter>Pac Header Files\Decision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

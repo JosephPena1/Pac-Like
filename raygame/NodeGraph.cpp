@@ -68,30 +68,18 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		//Loop through all of the edges for the iterator
 		for (int i = 0; i < currentNode->connections.size(); i++)
 		{
-			Node* currentEdgeEnd = nullptr; //Find a way to prevent a gscore of 100 appearing in the openlist
+			Node* currentEdgeEnd = nullptr;
 
 			currentEdgeEnd = currentNode->connections[i].target;
 
-			bool inList = false;
-
-			//checks if currentEdge is in closedList
-			for (int j = 0; j < closedList.size(); j++)
-				if (currentEdgeEnd == closedList[j])
-					inList = true;
-
 			//Check if node at the end of the edge is in the closed list
-			if (!inList)
+			if (!InList(closedList, currentEdgeEnd))
 			{
 				//Create a float and set it to be the g score of the iterator plus the cost of the edge
 				float gScoreTotal = currentNode->gScore + currentNode->connections[i].cost;
 
-				//checks if currentEdge is in openList
-				for (int j = 0; j < openList.size(); j++)
-					if (currentEdgeEnd == openList[j])
-						inList = true;
-
 				//Check if the node at the end of the edge is in the open list
-				if (!inList)
+				if (!InList(openList, currentEdgeEnd))
 				{
 					currentEdgeEnd->gScore = gScoreTotal;
 					currentEdgeEnd->previous = currentNode;
@@ -110,6 +98,7 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		}
 		//end loop
 
+		//Removes any nodes with a gscore of 100 or greater
 		for (int i = 0; i < openList.size(); i++)
 		{
 			if (openList[i]->gScore >= 100)
@@ -165,6 +154,15 @@ void NodeGraph::drawConnectedNodes(Node* node, std::deque<Node*>* drawnList)
 			drawConnectedNodes(e.target, drawnList);
 		}
 	}
+}
+
+bool NodeGraph::InList(std::deque<Node*> list, Node* current)
+{
+	for (int j = 0; j < list.size(); j++)
+		if (current == list[j])
+			return true;
+
+	return false;
 }
 
 float NodeGraph::findSmallest(std::deque<Node*> list, int i)

@@ -53,7 +53,14 @@ namespace NodeGraph
 	/// <param name="drawnList">Nodes that have already been drawn</param>
 	void drawConnectedNodes(Node* node, std::deque<Node*>* drawnList = nullptr);
 
-	float findSmallest(std::deque<Node*> list, int i);
+	/// <summary>
+	/// Checks if the current node is in the given list,
+	/// returns true if it is
+	/// </summary>
+	/// <param name="list">The list to iterate through</param>
+	/// <param name="current">The node you're looking for</param>
+	bool InList(std::deque<Node*>list, Node* current);
 
+	float findSmallest(std::deque<Node*> list, int i);
 };
 
