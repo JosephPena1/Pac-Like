@@ -64,7 +64,7 @@ void PathfindBehavior::updatePath(Agent* owner, MathLibrary::Vector2 destination
 	if (m_coolDown <= 0)
 	{
 		m_path = NodeGraph::findPath(ownerNode, targetNode);
-		m_coolDown = 100;
+		m_coolDown = 50;
 	}
 	m_coolDown--;
 	//if (!m_path.empty()) m_path.pop_front();

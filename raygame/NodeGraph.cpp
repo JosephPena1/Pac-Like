@@ -25,7 +25,16 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 	while (!openList.empty())
 	{
 		//Sort the items in the open list by the g score
-		selectSort(openList);
+		int pos = 0;
+		Node* temp = nullptr;
+
+		for (int i = 0; i < openList.size(); i++)
+		{
+			pos = findSmallest(openList, i);
+			temp = openList[i];
+			openList[i] = openList[pos];
+			openList[pos] = temp;
+		}
 
 		currentNode = openList[0];
 
@@ -35,11 +44,17 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		{
 			Node* iter = nullptr;
 			std::deque<Node*> goalPath;
-			goalPath.push_front(currentNode->previous);
+			goalPath.push_front(currentNode);
 
 			for (int i = 0; i < closedList.size(); i++)
 				if (goalPath[0]->previous)
-					goalPath.push_front(goalPath[0]->previous);
+				{
+					if (goalPath[0]->gScore != 1)
+						goalPath.push_front(goalPath[0]->previous);
+					else
+						break;
+				}
+					
 
 			return goalPath;
 		}
@@ -52,7 +67,7 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		//Loop through all of the edges for the iterator
 		for (int i = 0; i < currentNode->connections.size(); i++)
 		{
-			Node* currentEdgeEnd = nullptr;
+			Node* currentEdgeEnd = nullptr; //Find a way to prevent a gscore of 100 appearing in the openlist
 
 			currentEdgeEnd = currentNode->connections[i].target;
 
@@ -136,22 +151,6 @@ void NodeGraph::drawConnectedNodes(Node* node, std::deque<Node*>* drawnList)
 			drawConnectedNodes(e.target, drawnList);
 		}
 	}
-}
-
-std::deque<NodeGraph::Node*> NodeGraph::selectSort(std::deque<Node*> list)
-{
-	int pos = 0;
-	Node* temp = nullptr;
-
-	for (int i = 0; i < list.size(); i++)
-	{
-		pos = findSmallest(list, i);
-		temp = list[i];
-		list[i] = list[pos];
-		list[pos] = temp;
-	}
-
-	return list;
 }
 
 float NodeGraph::findSmallest(std::deque<Node*> list, int i)
