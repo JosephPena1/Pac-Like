@@ -74,6 +74,12 @@
     <ClCompile Include="SeekPathBehavior.cpp">
       <Filter>Pac Source Files\Behaviours</Filter>
     </ClCompile>
+    <ClCompile Include="FleeBehavior.cpp">
+      <Filter>Pac Source Files\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="FleePathBehavior.cpp">
+      <Filter>Pac Source Files\Behaviours</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -122,6 +128,12 @@
       <Filter>Pac Header Files\Behaviours</Filter>
     </ClInclude>
     <ClInclude Include="SeekPathBehavior.h">
+      <Filter>Pac Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeBehavior.h">
+      <Filter>Pac Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="FleePathBehavior.h">
       <Filter>Pac Header Files\Behaviours</Filter>
     </ClInclude>
   </ItemGroup>

@@ -40,7 +40,7 @@ void PathfindBehavior::update(Agent* owner, float deltaTime)
 	MathLibrary::Vector2 steeringForce = desiredVelocity - owner->getVelocity();
 
 	//Apply the force
-	owner->applyForce(steeringForce);
+	owner->setVelocity(desiredVelocity);
 }
 
 void PathfindBehavior::draw(Agent* owner)
@@ -61,12 +61,7 @@ void PathfindBehavior::updatePath(Agent* owner, MathLibrary::Vector2 destination
 	NodeGraph::Node* ownerNode = m_maze->getTile(owner->getWorldPosition()).node;
 	NodeGraph::Node* targetNode = m_maze->getTile(destination).node;
 
-	if (m_coolDown <= 0)
-	{
-		m_path = NodeGraph::findPath(ownerNode, targetNode);
-		m_coolDown = 50;
-	}
-	m_coolDown--;
+	m_path = NodeGraph::findPath(ownerNode, targetNode);
 	//if (!m_path.empty()) m_path.pop_front();
 	m_needPath = false;
 
