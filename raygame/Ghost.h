@@ -6,8 +6,6 @@
 class Maze;
 class DecisionBehavior;
 class Tagged;
-class SeekBehavior;
-class FleeBehavior;
 
 class Ghost : public Agent
 {
@@ -32,6 +30,9 @@ public:
 	SeekPathBehavior* getSeek() { return m_seekPathBehavior; }
 	FleePathBehavior* getFlee() { return m_fleePathBehavior; }
 
+	bool getIsTagged() { return m_isTagged; }
+	void setIsTagged(bool isTagged) { m_isTagged = isTagged; }
+
 	/// <summary>
 	/// Set the target of the ghost
 	/// </summary>
@@ -43,6 +44,7 @@ private:
 	FleePathBehavior* m_fleePathBehavior;
 	DecisionBehavior* m_decisionBehavior;
 	Tagged* m_tagged;
+	bool m_isTagged = true;
 
 	Maze* m_maze;
 
