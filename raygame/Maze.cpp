@@ -17,12 +17,12 @@ Maze::Maze(TileKey map[Maze::HEIGHT][Maze::WIDTH])
 Maze::~Maze()
 {
 	delete m_player;
-	for (int y = 0; y < m_size.y; y++) {
-		for (int x = 0; x < m_size.x; x++) {
+	for (int y = 0; y < m_size.y; y++) 
+		for (int x = 0; x < m_size.x; x++) 
+		{
 			delete m_grid[x][y].actor;
 			delete m_grid[x][y].node;
 		}
-	}
 }
 
 void Maze::draw()
@@ -57,7 +57,7 @@ Maze::Tile Maze::createTile(int x, int y, TileKey key)
 		tile.cost = 1.0f;
 		break;
 	case TileKey::WALL:
-		tile.cost = 100.0f;
+		tile.cost = 300.0f;
 		tile.actor = new Wall(position.x, position.y);
 		addActor(tile.actor);
 		break;

@@ -3,7 +3,7 @@
 
 class Wall : public Actor
 {
+
 public:
 	Wall(float x, float y);
 };
-

@@ -9,7 +9,7 @@
 #include "Tagged.h"
 
 Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
-	: Agent(x, y, Maze::TILE_SIZE / 4.0f, maxSpeed, maxSpeed, color)
+	: Agent(x, y, Maze::TILE_SIZE / 2.5f, maxSpeed, maxSpeed, color)
 {
 	m_maze = maze;
 	m_seekPathBehavior = new SeekPathBehavior(maze);
@@ -19,8 +19,10 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	FleeDecision* flee = new FleeDecision();
 	m_tagged = new Tagged(seek, flee);
 	m_decisionBehavior = new DecisionBehavior(m_tagged);
+	//Sets the ghost color for it's seek and flee
 	m_seekPathBehavior->setColor(color);
 	m_fleePathBehavior->setColor(color);
+	//Adds behaviours to ghost
 	addBehavior(m_decisionBehavior);
 	addBehavior(m_seekPathBehavior);
 	addBehavior(m_fleePathBehavior);
@@ -55,6 +57,7 @@ void Ghost::onCollision(Actor* other)
 			roundf(position.x / Maze::TILE_SIZE) * Maze::TILE_SIZE,
 			roundf(position.y / Maze::TILE_SIZE) * Maze::TILE_SIZE
 		};
+
 		tilePosition = tilePosition - halfTile;
 		setWorldPostion(tilePosition);
 

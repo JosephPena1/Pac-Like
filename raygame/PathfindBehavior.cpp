@@ -24,11 +24,12 @@ void PathfindBehavior::update(Agent* owner, float deltaTime)
 	Maze::Tile nextTile = m_maze->getTile(nextPosition);
 
 	//If owner is at the front node, go to the following node
-	if (ownerTile.x == nextTile.x && ownerTile.y == nextTile.y) {
+	if (ownerTile.x == nextTile.x && ownerTile.y == nextTile.y)
 		if (!m_path.empty())
+		{
+			m_path.front()->gScore = 0.0f;
 			m_path.pop_front();
-		m_needPath = true;
-	}
+		}
 
 	//Find the direction
 	MathLibrary::Vector2 direction = { 0.0f, 0.0f };
@@ -46,9 +47,7 @@ void PathfindBehavior::update(Agent* owner, float deltaTime)
 void PathfindBehavior::draw(Agent* owner)
 {
 	for (NodeGraph::Node* node : m_path)
-	{
 		NodeGraph::drawNode(node, m_color);
-	}
 }
 
 void PathfindBehavior::updatePath(Agent* owner)
@@ -60,9 +59,6 @@ void PathfindBehavior::updatePath(Agent* owner, MathLibrary::Vector2 destination
 {
 	NodeGraph::Node* ownerNode = m_maze->getTile(owner->getWorldPosition()).node;
 	NodeGraph::Node* targetNode = m_maze->getTile(destination).node;
-
 	m_path = NodeGraph::findPath(ownerNode, targetNode);
-	//if (!m_path.empty()) m_path.pop_front();
 	m_needPath = false;
-
 }

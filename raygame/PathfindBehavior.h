@@ -48,6 +48,11 @@ public:
 	int getColor() { return m_color; }
 	void setColor(int color) { m_color = color; }
 
+	bool getNeedPath() { return m_needPath; }
+	void setNeedPath(bool needPath) { m_needPath = needPath; }
+
+	std::deque<NodeGraph::Node*> getPath() { return m_path; }
+
 protected:
 	virtual MathLibrary::Vector2 findDestination(Agent* owner) = 0;
 
