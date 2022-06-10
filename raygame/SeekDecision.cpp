@@ -8,7 +8,7 @@ void SeekDecision::makeDecision(Agent* agent, float deltaTime)
 	if (ghost)
 	{
 		ghost->getSeek()->setEnabled(true);
-		ghost->getFlee()->setEnabled(false);
+		//ghost->getFlee()->setEnabled(false);
 
 		if (ghost->getSeek()->getNeedPath())
 			ghost->getSeek()->updatePath(agent);

@@ -40,11 +40,10 @@ void Agent::update(float deltaTime)
 	m_force = { 0,0 };
 
 	// For each Behavior in Behavior list...
-	for (int i = 0; i < m_behaviorList.size(); i++) 
+	for (int i = 0; i < m_behaviourList.size(); i++) 
 	{
-		// Update that behavior if it's enabled
-		if (m_behaviorList[i]->getEnabled())
-			m_behaviorList[i]->update(this, deltaTime);
+		// Update that behavior
+		m_behaviourList[i]->update(this, deltaTime);
 	}
 
 	// Add force times delta time to velocity
@@ -58,9 +57,4 @@ void Agent::applyForce(MathLibrary::Vector2 force)
 
 	if (m_force.getMagnitude() > m_maxForce)
 		m_force = m_force.getNormalized() * m_maxForce;
-}
-
-void Agent::addBehavior(Behavior* behavior)
-{
-	m_behaviorList.push_back(behavior);
 }

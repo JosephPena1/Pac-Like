@@ -92,8 +92,8 @@
     <ClCompile Include="FleeDecision.cpp">
       <Filter>Pac Source Files\Decision</Filter>
     </ClCompile>
-    <ClCompile Include="Tagged.cpp">
-      <Filter>Pac Source Files\Decision</Filter>
+    <ClCompile Include="SeekBehaviour.cpp">
+      <Filter>Pac Source Files\Behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,8 +160,8 @@
     <ClInclude Include="FleeDecision.h">
       <Filter>Pac Header Files\Decision</Filter>
     </ClInclude>
-    <ClInclude Include="Tagged.h">
-      <Filter>Pac Header Files\Decision</Filter>
+    <ClInclude Include="SeekBehaviour.h">
+      <Filter>Pac Header Files\Behaviours</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

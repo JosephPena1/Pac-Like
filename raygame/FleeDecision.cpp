@@ -7,7 +7,7 @@ void FleeDecision::makeDecision(Agent* agent, float deltaTime)
 
 	if (ghost)
 	{
-		ghost->getFlee()->setEnabled(true);
+		//ghost->getFlee()->setEnabled(true);
 		ghost->getSeek()->setEnabled(false);
 	}
 }

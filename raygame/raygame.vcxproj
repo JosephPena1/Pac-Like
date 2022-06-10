@@ -171,7 +171,7 @@
     <ClCompile Include="FleePathBehavior.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Ghost.cpp" />
-    <ClCompile Include="Tagged.cpp" />
+    <ClCompile Include="SeekBehaviour.cpp" />
     <ClCompile Include="KeyboardBehavior.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
@@ -196,7 +196,7 @@
     <ClInclude Include="FleePathBehavior.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Ghost.h" />
-    <ClInclude Include="Tagged.h" />
+    <ClInclude Include="SeekBehaviour.h" />
     <ClInclude Include="KeyboardBehavior.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="NodeGraph.h" />

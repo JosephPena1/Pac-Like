@@ -15,6 +15,7 @@ void ABDecision::makeDecision(Agent* agent, float deltaTime)
 		//move to the left node
 		if (m_leftChild)
 			m_leftChild->makeDecision(agent, deltaTime);
+
 	}
 	else
 	{

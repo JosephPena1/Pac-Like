@@ -63,7 +63,7 @@ public:
 	/// Add a behaviour to the agent.
 	/// </summary>
 	/// <param name="behavior"></param>
-	void addBehavior(Behavior* behavior);
+	void addBehavior(Behavior* behaviour) { m_behaviourList.push_back(behaviour); }
 
 	///<summary>
 	/// Returns the first behaviour that matches the given type
@@ -73,7 +73,7 @@ public:
 	BehaviourType* getBehaviour();
 
 private:
-	std::vector<Behavior*> m_behaviorList;
+	std::vector<Behavior*> m_behaviourList;
 
 	MathLibrary::Vector2 m_force = { 0, 0 };
 	float m_maxForce;
@@ -82,17 +82,18 @@ private:
 template<typename BehaviourType>
 inline BehaviourType* Agent::getBehaviour()
 {
-	//Iterate through the list of behaviours
-	for (int i = 0; i < m_behaviorList.size(); i++)
+	int i = 0;
+	for (BehaviourType behaviour : m_behaviourList)
 	{
 		//Attempt to cast behaviour at the current index as the given type
-		BehaviourType* behaviour = dynamic_cast<BehaviourType*>(m_behaviorList[i]);
+		BehaviourType* behaviour = dynamic_cast<BehaviourType*>(m_behaviourList[i]);
 
 		//If the cast is successful return the behaviour that is found
 		if (behaviour)
 			return behaviour;
-	}
 
+		i++;
+	}
 	//If no behaviours were found to match the type, return nullptr
 	return nullptr;
 }

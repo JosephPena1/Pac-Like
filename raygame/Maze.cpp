@@ -6,7 +6,7 @@ Maze::Maze(TileKey map[Maze::HEIGHT][Maze::WIDTH])
 	m_player = new Pac(
 		WIDTH / 2 * TILE_SIZE + (TILE_SIZE / 2),
 		HEIGHT / 2 * TILE_SIZE + (TILE_SIZE / 2),
-		200
+		250
 	);
 	//Generate the map
 	generate(map);

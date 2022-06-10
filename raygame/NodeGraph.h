@@ -18,6 +18,8 @@ namespace NodeGraph
 		MathLibrary::Vector2 position;
 
 		float gScore;
+		float hScore;
+		float fScore;
 		Node* previous;
 
 		std::vector<Edge> connections;
@@ -25,7 +27,6 @@ namespace NodeGraph
 
 	/// <summary>
 	/// Find a path from the start node to the end node.
-	/// IMPLEMENT this function.
 	/// </summary>
 	/// <param name="start">The first node in the path</param>
 	/// <param name="end">The destination node</param>
@@ -59,8 +60,7 @@ namespace NodeGraph
 	/// </summary>
 	/// <param name="list">The list to iterate through</param>
 	/// <param name="current">The node you're looking for</param>
-	bool InList(std::deque<Node*>list, Node* current);
+	bool InList(std::deque<Node*>list, Node* node);
 
-	float findSmallest(std::deque<Node*> list, int i);
+	float updateHScore(Node* currentNode, Node* end);
 };
-
