@@ -77,14 +77,14 @@ int main()
 		{ w, _, w, w, w, w, _, w, w, w, w, w, _, w, w, _, w, w, w, w, w, _, w, w, w, w, _, w },
 		{ w, _, w, w, w, w, _, w, w, w, w, w, _, w, w, _, w, w, w, w, w, _, w, w, w, w, _, w },
 		{ w, _, w, w, w, w, _, w, w, w, w, w, _, w, w, _, w, w, w, w, w, _, w, w, w, w, _, w },
-		{ w, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, w },
+		{ w, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, g, _, _, _, _, _, _, _, _, w },
 		{ w, _, w, w, w, w, _, w, w, _, w, w, w, w, w, w, w, w, _, w, w, _, w, w, w, w, _, w },
 		{ w, _, w, w, w, w, _, w, w, _, w, w, w, w, w, w, w, w, _, w, w, _, w, w, w, w, _, w },
 		{ w, _, w, w, w, w, _, w, w, _, _, _, _, w, w, _, _, _, _, w, w, _, w, w, w, w, _, w },
 		{ w, _, _, _, _, _, _, w, w, w, w, w, _, w, w, _, w, w, w, w, w, _, _, _, _, _, _, w },
 		{ w, _, w, w, w, w, _, w, w, w, w, w, _, w, w, _, w, w, w, w, w, _, w, w, w, w, _, w },
 		{ w, _, w, w, w, w, _, w, w, _, _, _, _, _, _, _, _, _, _, w, w, _, w, w, w, w, _, w },
-		{ w, _, w, w, w, w, _, w, w, _, _, _, _, g, _, _, _, _, _, w, w, _, w, w, w, w, _, w },
+		{ w, _, w, w, w, w, _, w, w, _, _, _, _, _, _, _, _, _, _, w, w, _, w, w, w, w, _, w },
 		{ w, _, w, w, w, w, _, w, w, _, _, _, _, _, _, _, _, _, _, w, w, _, w, w, w, w, _, w },
 		{ _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ },
 		{ w, _, w, w, w, w, _, w, w, _, _, _, _, _, _, _, _, _, _, w, w, _, w, w, w, w, _, w },
@@ -106,7 +106,7 @@ int main()
 	};
 
 	// Create a maze, add it to the scene, and set it as the current scene
-	game.setCurrentScene(game.addScene(new Maze(emptyMap)));
+	game.setCurrentScene(game.addScene(new Maze(pacMap)));
 
 	game.run();
 

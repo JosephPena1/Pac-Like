@@ -1,11 +1,10 @@
 #pragma once
 #include "Agent.h"
+#include "SeekBehaviour.h"
 #include "SeekPathBehavior.h"
-#include "FleePathBehavior.h"
 
 class Maze;
 class DecisionBehavior;
-class Tagged;
 
 class Ghost : public Agent
 {
@@ -28,10 +27,6 @@ public:
 	///<returns>The current target</returns>
 	Actor* getTarget();
 	SeekPathBehavior* getSeek() { return m_seekPathBehavior; }
-	FleePathBehavior* getFlee() { return m_fleePathBehavior; }
-
-	bool getIsTagged() { return m_isTagged; }
-	void setIsTagged(bool isTagged) { m_isTagged = isTagged; }
 
 	/// <summary>
 	/// Set the target of the ghost
@@ -40,14 +35,11 @@ public:
 	void setTarget(Actor* target);
 
 private:
-	SeekPathBehavior* m_seekPathBehavior;
-	FleePathBehavior* m_fleePathBehavior;
-	DecisionBehavior* m_decisionBehavior;
-	Tagged* m_tagged;
-	bool m_isTagged = true;
-
 	Maze* m_maze;
-
 	Actor* m_target = nullptr;
-};
+	float m_speedBoost =  100.0f;
 
+	SeekPathBehavior* m_seekPathBehavior;
+
+	DecisionBehavior* m_decision;
+};

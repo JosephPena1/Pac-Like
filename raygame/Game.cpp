@@ -37,12 +37,12 @@ int Game::addScene(Scene* scene)
 bool Game::removeScene(Scene* scene)
 {
 	for (int i = 0; i < m_scenes.size(); i++)
-	{
-		if (m_scenes[i] = scene) {
+		if (m_scenes[i] = scene) 
+		{
 			m_scenes.erase(m_scenes.begin() + i);
 			return true;
 		}
-	}
+
 	return false;
 }
 

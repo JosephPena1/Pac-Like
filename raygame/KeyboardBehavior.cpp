@@ -12,4 +12,6 @@ void KeyboardBehavior::update(Agent* owner, float deltaTime)
         owner->setVelocity({ -m_speedIncrement, 0.0f });
     if (IsKeyDown(KEY_D))
         owner->setVelocity({ m_speedIncrement, 0.0f });
+    if (IsKeyDown(KEY_LEFT_CONTROL))
+        owner->setVelocity({0, 0});
 }
